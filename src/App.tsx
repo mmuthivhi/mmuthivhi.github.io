@@ -71,7 +71,57 @@ export default function App() {
 
       {/* Hero */}
       <section className="relative h-screen flex flex-col justify-center px-6 md:px-12 overflow-hidden">
-        <motion.div style={{ y, opacity }} className="max-w-5xl z-10 mt-16">
+        {/* Background Video with CV Overlay */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-white dark:bg-black">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-40"
+            src="https://assets.mixkit.co/videos/preview/mixkit-herd-of-elephants-walking-in-the-savanna-11354-large.mp4" 
+          />
+          <div className="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 transition-colors duration-300"></div>
+          
+          {/* Animated Bounding Boxes overlaying the video */}
+          <div className="absolute inset-0 z-20 pointer-events-none opacity-50 dark:opacity-70 hidden md:block mix-blend-difference dark:mix-blend-normal">
+            {/* Box 1 */}
+            <motion.div 
+              animate={{ 
+                x: ["10vw", "30vw", "40vw", "20vw", "10vw"],
+                y: ["20vh", "30vh", "25vh", "40vh", "20vh"],
+                width: ["12vw", "14vw", "10vw", "15vw", "12vw"],
+                height: ["16vh", "18vh", "14vh", "20vh", "16vh"]
+              }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute border border-green-500 bg-green-500/10"
+            >
+              <div className="absolute -top-5 left-[-1px] bg-green-500 text-black text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
+                <span>ELEPHANT</span>
+                <span>0.98</span>
+              </div>
+            </motion.div>
+
+            {/* Box 2 */}
+            <motion.div 
+              animate={{ 
+                x: ["60vw", "75vw", "70vw", "50vw", "60vw"],
+                y: ["40vh", "35vh", "50vh", "45vh", "40vh"],
+                width: ["8vw", "10vw", "12vw", "9vw", "8vw"],
+                height: ["12vh", "15vh", "18vh", "14vh", "12vh"]
+              }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute border border-blue-500 bg-blue-500/10"
+            >
+              <div className="absolute -top-5 left-[-1px] bg-blue-500 text-white text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
+                <span>ELEPHANT</span>
+                <span>0.95</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <motion.div style={{ y, opacity }} className="max-w-5xl z-30 mt-16 pointer-events-none">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +134,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm md:text-base tracking-tight text-gray-600 dark:text-gray-400 max-w-sm md:max-w-xl transition-colors duration-300"
+            className="text-sm md:text-base tracking-tight text-gray-700 dark:text-gray-300 max-w-sm md:max-w-xl transition-colors duration-300 drop-shadow-sm font-medium"
           >
             {personal.about}
           </motion.p>
@@ -94,16 +144,50 @@ export default function App() {
       {/* Work / Showcase */}
       <Section id="work" className="pt-0">
         {/* Video Slideshow from Theme */}
-        <div className="relative w-full h-[400px] md:h-[600px] bg-gray-100 dark:bg-neutral-900 group overflow-hidden flex items-center justify-center transition-colors duration-300">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div className="relative w-full h-[400px] md:h-[600px] bg-black group overflow-hidden flex items-center justify-center transition-colors duration-300">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
+              src="https://assets.mixkit.co/videos/preview/mixkit-wild-zebras-walking-in-savanna-11531-large.mp4" 
+            />
+            
+            {/* Animated CV overlay on video */}
+            <div className="absolute inset-0 z-10 pointer-events-none opacity-80 hidden md:block drop-shadow-md">
+               <motion.div 
+                animate={{ x: ["35vw", "45vw", "55vw", "45vw", "35vw"], y: ["25vh", "28vh", "22vh", "28vh", "25vh"] }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute border border-yellow-400 bg-yellow-400/5 w-40 h-40"
+               >
+                 <div className="absolute -top-5 left-[-1px] bg-yellow-400 text-black text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
+                  <span>ZEBRA</span>
+                  <span>0.99</span>
+                 </div>
+               </motion.div>
+
+               <motion.div 
+                animate={{ x: ["10vw", "20vw", "15vw", "25vw", "10vw"], y: ["35vh", "40vh", "30vh", "45vh", "35vh"] }}
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                className="absolute border border-red-500 bg-red-500/5 w-32 h-32"
+               >
+                 <div className="absolute -top-5 left-[-1px] bg-red-500 text-white text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
+                  <span>ZEBRA</span>
+                  <span>0.94</span>
+                 </div>
+               </motion.div>
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
             
             {/* Play Button */}
-            <div className="relative z-10 w-20 h-20 rounded-full border-2 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer hover:bg-white/20 transition-colors">
+            <div className="relative z-20 w-20 h-20 rounded-full border-2 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer hover:bg-white/20 transition-colors pointer-events-auto">
                 <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-2"></div>
             </div>
             
             {/* Controls */}
-            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end z-20">
                 <div className="w-2/3 md:w-1/2">
                     <h3 className="text-white text-3xl font-extrabold tracking-tight mb-2 uppercase">Herd Detection</h3>
                     <div className="flex items-center gap-4">
@@ -120,9 +204,9 @@ export default function App() {
                 </div>
             </div>
             
-            <div className="absolute top-0 right-0 p-8 flex gap-2">
-                <div className="px-3 py-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest">Video Preview</div>
-                <div className="px-3 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest">Case Study</div>
+            <div className="absolute top-0 right-0 p-8 flex gap-2 z-20">
+                <div className="px-3 py-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest pointer-events-auto">Video Preview</div>
+                <div className="px-3 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest pointer-events-auto">Case Study</div>
             </div>
         </div>
 
