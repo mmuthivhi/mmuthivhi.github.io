@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { personal, experience, projects, education, publications, news, wip, highlightedPapers, openSourceCode, awards } from "./data";
-import { ChevronRight, ExternalLink, ArrowRight, Github, Mail, MapPin, Phone, Moon, Sun, Linkedin, GraduationCap, IdCard, Smile, Image as ImageIcon, Camera } from "lucide-react";
+import { personal, experience, projects, education, publications, news, wip } from "./data";
+import { ChevronRight, ExternalLink, ArrowRight, Github, Mail, MapPin, Phone, Moon, Sun, Linkedin, GraduationCap, IdCard, Smile } from "lucide-react";
 import { cn } from "./lib/utils";
 
 const Section = ({ className, children, id }: { className?: string; children: React.ReactNode; id?: string }) => (
@@ -53,11 +53,10 @@ export default function App() {
           </div>
         </div>
         <div className="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-widest text-gray-500 dark:text-gray-400">
+          <a href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</a>
           <a href="#news" className="hover:text-black dark:hover:text-white transition-colors">News</a>
-          <a href="#highlighted-papers" className="hover:text-black dark:hover:text-white transition-colors">Highlights</a>
-          <a href="#open-source" className="hover:text-black dark:hover:text-white transition-colors">Code</a>
+          <a href="#experience" className="hover:text-black dark:hover:text-white transition-colors">Experience</a>
           <a href="#publications" className="hover:text-black dark:hover:text-white transition-colors">Publications</a>
-          <a href="#awards" className="hover:text-black dark:hover:text-white transition-colors">Awards</a>
           <a href="#appointments" className="hover:text-black dark:hover:text-white transition-colors">Calendar</a>
           <button onClick={toggleDark} className="p-2 hover:text-black dark:hover:text-white transition-colors" aria-label="Toggle dark mode">
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -72,108 +71,7 @@ export default function App() {
 
       {/* Hero */}
       <section className="relative h-screen flex flex-col justify-center px-6 md:px-12 overflow-hidden">
-        {/* Background Video with CV Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-white dark:bg-black">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-40"
-            src="https://assets.mixkit.co/videos/preview/mixkit-herd-of-elephants-walking-in-the-savanna-11354-large.mp4" 
-          />
-          <div className="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 transition-colors duration-300"></div>
-          
-          {/* Animated Bounding Boxes overlaying the video */}
-          <div className="absolute inset-0 z-20 pointer-events-none opacity-50 dark:opacity-70 hidden md:block mix-blend-difference dark:mix-blend-normal">
-            {/* Box 1 */}
-            <motion.div 
-              animate={{ 
-                x: ["10vw", "30vw", "40vw", "20vw", "10vw"],
-                y: ["20vh", "30vh", "25vh", "40vh", "20vh"],
-                width: ["12vw", "14vw", "10vw", "15vw", "12vw"],
-                height: ["16vh", "18vh", "14vh", "20vh", "16vh"]
-              }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute border border-green-500 bg-green-500/10"
-            >
-              <div className="absolute -top-5 left-[-1px] bg-green-500 text-black text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
-                <span>ELEPHANT</span>
-                <span>0.98</span>
-              </div>
-            </motion.div>
-
-            {/* Box 2 */}
-            <motion.div 
-              animate={{ 
-                x: ["60vw", "75vw", "70vw", "50vw", "60vw"],
-                y: ["40vh", "35vh", "50vh", "45vh", "40vh"],
-                width: ["8vw", "10vw", "12vw", "9vw", "8vw"],
-                height: ["12vh", "15vh", "18vh", "14vh", "12vh"]
-              }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute border border-blue-500 bg-blue-500/10"
-            >
-              <div className="absolute -top-5 left-[-1px] bg-blue-500 text-white text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
-                <span>ZEBRA</span>
-                <span>0.95</span>
-              </div>
-            </motion.div>
-
-            {/* Box 3 */}
-            <motion.div 
-              animate={{ 
-                x: ["80vw", "60vw", "50vw", "70vw", "80vw"],
-                y: ["55vh", "45vh", "50vh", "60vh", "55vh"],
-                width: ["15vw", "12vw", "16vw", "14vw", "15vw"],
-                height: ["20vh", "15vh", "22vh", "18vh", "20vh"]
-              }}
-              transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-              className="absolute border border-yellow-500 bg-yellow-500/10 hidden lg:block"
-            >
-              <div className="absolute -top-5 left-[-1px] bg-yellow-500 text-black text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
-                <span>ZEBRA</span>
-                <span>0.89</span>
-              </div>
-            </motion.div>
-
-            {/* Box 4 */}
-            <motion.div 
-              animate={{ 
-                x: ["20vw", "45vw", "65vw", "40vw", "20vw"],
-                y: ["65vh", "55vh", "60vh", "70vh", "65vh"],
-                width: ["10vw", "14vw", "12vw", "15vw", "10vw"],
-                height: ["14vh", "18vh", "16vh", "22vh", "14vh"]
-              }}
-              transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-              className="absolute border border-purple-500 bg-purple-500/10"
-            >
-              <div className="absolute -top-5 left-[-1px] bg-purple-500 text-white text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
-                <span>ELEPHANT</span>
-                <span>0.92</span>
-              </div>
-            </motion.div>
-
-            {/* Box 5 */}
-            <motion.div 
-              animate={{ 
-                x: ["40vw", "25vw", "35vw", "55vw", "40vw"],
-                y: ["35vh", "50vh", "40vh", "30vh", "35vh"],
-                width: ["7vw", "9vw", "8vw", "10vw", "7vw"],
-                height: ["10vh", "12vh", "11vh", "14vh", "10vh"]
-              }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-              className="absolute border border-cyan-500 bg-cyan-500/10"
-            >
-              <div className="absolute -top-5 left-[-1px] bg-cyan-500 text-black text-[9px] font-mono font-bold px-2 py-0.5 flex items-center gap-2 whitespace-nowrap">
-                <span>WILDEBEEST</span>
-                <span>0.78</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        <motion.div style={{ y, opacity }} className="max-w-5xl z-30 mt-16 pointer-events-none">
+        <motion.div style={{ y, opacity }} className="max-w-5xl z-10 mt-16">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -186,12 +84,82 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm md:text-base tracking-tight text-gray-700 dark:text-gray-300 max-w-sm md:max-w-xl transition-colors duration-300 drop-shadow-sm font-medium"
+            className="text-sm md:text-base tracking-tight text-gray-600 dark:text-gray-400 max-w-sm md:max-w-xl transition-colors duration-300"
           >
             {personal.about}
           </motion.p>
         </motion.div>
       </section>
+
+      {/* Work / Showcase */}
+      <Section id="work" className="pt-0">
+        {/* Video Slideshow from Theme */}
+        <div className="relative w-full h-[400px] md:h-[600px] bg-gray-100 dark:bg-neutral-900 group overflow-hidden flex items-center justify-center transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            
+            {/* Play Button */}
+            <div className="relative z-10 w-20 h-20 rounded-full border-2 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer hover:bg-white/20 transition-colors">
+                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-2"></div>
+            </div>
+            
+            {/* Controls */}
+            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+                <div className="w-2/3 md:w-1/2">
+                    <h3 className="text-white text-3xl font-extrabold tracking-tight mb-2 uppercase">Herd Detection</h3>
+                    <div className="flex items-center gap-4">
+                        <div className="flex-1 h-[2px] bg-white/30">
+                            <div className="h-full w-1/3 bg-white"></div>
+                        </div>
+                        <div className="text-[10px] font-mono text-white">01 / 06</div>
+                    </div>
+                </div>
+                <div className="hidden md:flex gap-2">
+                    <div className="w-6 h-1 bg-white"></div>
+                    <div className="w-6 h-1 bg-white/30"></div>
+                    <div className="w-6 h-1 bg-white/30"></div>
+                </div>
+            </div>
+            
+            <div className="absolute top-0 right-0 p-8 flex gap-2">
+                <div className="px-3 py-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest">Video Preview</div>
+                <div className="px-3 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest">Case Study</div>
+            </div>
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-4 uppercase">Selected Work</h2>
+          <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 max-w-sm transition-colors duration-300">Exploring out-of-distribution detection, multi-target tracking, and the complexity of linear regions in open environments.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group relative bg-gray-100 hover:bg-gray-200 dark:bg-neutral-900/50 dark:hover:bg-neutral-900 dark:border-neutral-800 transition-colors p-8 min-h-[320px] flex flex-col justify-between overflow-hidden"
+            >
+              <div className="flex flex-col h-full justify-between z-10 relative">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tighter mb-3 uppercase">{project.title}</h3>
+                  <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">{project.description}</p>
+                </div>
+                <div className="flex flex-wrap gap-x-6 gap-y-4">
+                  {project.tags.map(tag => (
+                    <div key={tag} className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-500 mb-1">Domain</span>
+                      <span className="text-xs font-semibold dark:text-gray-300">{tag}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </Section>
 
       {/* News */}
       <Section id="news" className="overflow-hidden">
@@ -248,102 +216,6 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Highlighted Papers */}
-      <Section id="highlighted-papers" className="overflow-hidden">
-        <div className="flex justify-between items-end mb-12">
-           <div>
-              <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter uppercase">Highlighted Papers.</h2>
-           </div>
-        </div>
-        
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 md:-mx-12 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {highlightedPapers.map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="snap-start shrink-0 w-[85vw] md:w-[450px] bg-gray-50 hover:bg-gray-100 dark:bg-neutral-900/50 dark:hover:bg-neutral-900 border border-gray-200 dark:border-neutral-800 p-8 md:p-10 flex flex-col justify-between group transition-colors duration-300 min-h-[360px] cursor-grab active:cursor-grabbing"
-            >
-              <div>
-                <div className="flex justify-between items-center mb-8 border-b border-gray-200 dark:border-neutral-800 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">{item.date}</span>
-                  <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-2xl font-bold tracking-tighter mb-4 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors uppercase leading-[1.1]">
-                  {item.title}
-                </h3>
-              </div>
-              <div className="mt-8 flex flex-col gap-4">
-                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 transition-colors duration-300">
-                  {item.description}
-                </p>
-                <a href={item.link} className="flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest text-gray-900 dark:text-gray-300 mt-2 hover:opacity-70 transition-opacity">
-                  Read Paper <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-          
-          <div className="shrink-0 w-1 md:w-4"></div>
-        </div>
-      </Section>
-
-      {/* Open Source Code */}
-      <Section id="open-source" className="overflow-hidden">
-        <div className="flex justify-between items-end mb-12">
-           <div>
-              <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter uppercase whitespace-normal break-words">Open Source Code.</h2>
-           </div>
-        </div>
-        
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 md:-mx-12 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {openSourceCode.map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="snap-start shrink-0 w-[85vw] md:w-[450px] bg-white hover:bg-gray-50 dark:bg-neutral-950 dark:hover:bg-neutral-900 border border-gray-200 dark:border-neutral-800 p-8 md:p-10 flex flex-col justify-between group transition-colors duration-300 min-h-[360px] cursor-grab active:cursor-grabbing rounded-xl"
-            >
-              <div>
-                <div className="flex justify-between items-center mb-8 pb-4">
-                   <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-neutral-900/80 flex items-center justify-center text-gray-900 dark:text-gray-100 group-hover:scale-110 transition-transform">
-                      <Github className="w-6 h-6" />
-                   </div>
-                  <div className="flex items-center gap-1 text-gray-500 font-bold">
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>
-                    <span className="text-sm">{item.stars}</span>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold tracking-tighter mb-4 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors uppercase leading-[1.1]">
-                  {item.title}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {item.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-gray-100 dark:bg-neutral-900 text-gray-600 dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest rounded-full">
-                       {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-4 flex flex-col gap-4 border-t border-gray-100 dark:border-neutral-800 pt-6">
-                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 transition-colors duration-300">
-                  {item.description}
-                </p>
-                <a href={item.link} className="flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest text-gray-900 dark:text-gray-300 mt-2 hover:opacity-70 transition-opacity">
-                  View Repository <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-          
-          <div className="shrink-0 w-1 md:w-4"></div>
-        </div>
-      </Section>
-
       {/* Work In Progress / Collaborations */}
       <Section id="wip">
         <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">In Progress</h2>
@@ -369,32 +241,6 @@ export default function App() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </Section>
-
-      {/* Live Demos */}
-      <Section id="demos">
-        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Live Preview.</h2>
-        
-        <div className="bg-gray-100 dark:bg-neutral-900 rounded-[2rem] p-6 md:p-12 overflow-hidden transition-colors duration-300">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8 border-b border-gray-200 dark:border-neutral-800 pb-6">
-            <h3 className="text-2xl font-bold tracking-tight uppercase">Big5 OOD Classification</h3>
-            <div className="flex gap-2">
-              <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase tracking-widest rounded-full">Hugging Face</span>
-              <span className="inline-block px-3 py-1 border border-gray-300 dark:border-neutral-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Gradio Space</span>
-            </div>
-          </div>
-          
-          <div className="w-full bg-white dark:bg-neutral-950 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-800 h-[600px] md:h-[800px]">
-            <iframe
-              src="https://pxpana-big5-ood.hf.space"
-              frameBorder="0"
-              className="w-full h-full"
-              title="Big5 OOD Hugging Face Space"
-              allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
-              sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
-            ></iframe>
-          </div>
         </div>
       </Section>
 
@@ -468,34 +314,6 @@ export default function App() {
                 <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">{pub.authors}</p>
                 <span className="inline-block px-3 py-1 bg-black text-white dark:bg-white dark:text-black transition-colors duration-300 text-[10px] font-bold uppercase tracking-widest">
                   {pub.conference}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Awards */}
-      <Section id="awards">
-        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Awards</h2>
-        <div className="flex flex-col border-t border-gray-200 dark:border-neutral-800 transition-colors duration-300">
-          {awards.map((award, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4 }}
-              className="py-8 border-b border-gray-200 dark:border-neutral-800 transition-colors flex flex-col md:flex-row gap-4 md:gap-12 md:items-baseline group"
-            >
-              <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-500 md:w-24 shrink-0">{award.date}</div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors tracking-tight">
-                  {award.title}
-                </h3>
-                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">{award.description}</p>
-                <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 transition-colors duration-300 text-[10px] font-bold uppercase tracking-widest rounded-full">
-                  {award.organization}
                 </span>
               </div>
             </motion.div>

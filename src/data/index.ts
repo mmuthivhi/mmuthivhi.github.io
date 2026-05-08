@@ -157,85 +157,27 @@ export const publications = [
 export const wip = [
   {
     title: "Continual Test Time Adaption",
-    collaborators: ["Prof. Terence L. van Zyl"]
+    collaborators: ["Terence L. van Zyl"]
   },
   {
     title: "Continual Learning and Linear Regions",
-    collaborators: ["Prof. Terence L. van Zyl"]
+    collaborators: ["Terence L. van Zyl"]
   },
   {
     title: "Self-supervised Learning Re-identification",
-    collaborators: ["Prof. Terence L. van Zyl", "Prof. Fredrik Gustafsson"]
+    collaborators: ["Terence L. van Zyl", "Fredrik Gustafsson"]
   },
   {
     title: "Herd Classification",
-    collaborators: ["Jiahao Huo", "Prof. Terence L. van Zyl", "Prof. Fredrik Gustafsson"]
+    collaborators: ["Jiahao Huo", "Terence L. van Zyl", "Fredrik Gustafsson"]
   },
   {
     title: "OOD/OSR Audio Classification",
-    collaborators: ["Obenembot McCauley", "Prof. Terence L. van Zyl"]
+    collaborators: ["Obenembot McCauley", "Terence L. van Zyl"]
   },
   {
     title: "Re-identification Domain Generalisation",
-    collaborators: ["Lily Akpanke", "Prof. Terence L. van Zyl"]
-  }
-];
-
-export const highlightedPapers = [
-  {
-    date: "2026",
-    title: "Complexity of Linear Regions in Self-supervised Deep ReLU Networks",
-    description: "Accepted to CVPR 2026 Findings Track. Focuses on the structural complexity of neural networks trained with self-supervised learning.",
-    link: "https://arxiv.org/pdf/2604.24393"
-  },
-  {
-    date: "2025",
-    title: "Wildlife Target Re-Identification Using Self-Supervised Learning in Non-Urban Settings",
-    description: "Published at FUSION 2025. Utilizes self-supervised learning for animal re-identification without relying on extensive labels.",
-    link: "https://arxiv.org/pdf/2507.02403"
-  },
-  {
-    date: "2025",
-    title: "Improving Wildlife Out-of-Distribution Detection: Africas Big Five",
-    description: "Presented at CVPR CV4Animals 2025. Explores detecting unknown instances in natural wildlife datasets.",
-    link: "https://arxiv.org/pdf/2506.06719"
-  },
-  {
-    date: "2026",
-    title: "Multi-Object Tracking Consistently Improves Wildlife Inference",
-    description: "Published at FUSION 2026. Demonstrates how incorporating tracking models enhances the robustness of wildlife identification.",
-    link: "#"
-  },
-];
-
-export const openSourceCode = [
-  {
-    title: "Big5 OOD Detection",
-    description: "Codebase for out-of-distribution detection on the Africa's Big Five dataset. Includes training scripts, evaluation metrics, and pre-trained models.",
-    tags: ["PyTorch", "Computer Vision", "OOD"],
-    link: "https://github.com/muthivhi/big5-ood",
-    stars: 42
-  },
-  {
-    title: "Big5 OOD Detection",
-    description: "Codebase for out-of-distribution detection on the Africa's Big Five dataset. Includes training scripts, evaluation metrics, and pre-trained models.",
-    tags: ["PyTorch", "Computer Vision", "OOD"],
-    link: "https://github.com/muthivhi/big5-ood",
-    stars: 42
-  },
-  {
-    title: "Wildlife MOT",
-    description: "Multi-Object Tracking implementation optimized for wildlife monitoring in open environments. Features custom association metrics for non-rigid objects.",
-    tags: ["Tracking", "Python", "OpenCV"],
-    link: "https://github.com/muthivhi/wildlife-mot",
-    stars: 28
-  },
-  {
-    title: "SSL Linear Regions",
-    description: "Tools for analyzing the complexity of linear regions in self-supervised Deep ReLU Networks. Includes visualization utilities.",
-    tags: ["Deep Learning", "Theory", "JAX"],
-    link: "https://github.com/muthivhi/ssl-linear-regions",
-    stars: 15
+    collaborators: ["Lily Akpanke", "Terence L. van Zyl"]
   }
 ];
 
@@ -259,27 +201,6 @@ export const news = [
     date: "2024",
     title: "Journal Publication Accepted",
     description: "My Master's dissertation on Multi-modal Recommendation Systems has been accepted as a journal publication under Neural Computing and Applications."
-  }
-];
-
-export const awards = [
-  {
-    date: "2026",
-    title: "CVPR 2026 Travel Grant",
-    organization: "IEEE/CVF",
-    description: "Awarded a travel grant to attend and present research at CVPR 2026."
-  },
-  {
-    date: "2025",
-    title: "Outstanding Research Award",
-    organization: "CV4Animals Workshop at CVPR",
-    description: "Recognized for significant contributions in wildlife detection methodologies."
-  },
-  {
-    date: "2024",
-    title: "Best Dissertation Award",
-    organization: "University of Johannesburg",
-    description: "Awarded for exceptional Master's research on Multi-modal Recommendation Systems in high-noise environments."
   }
 ];
 
