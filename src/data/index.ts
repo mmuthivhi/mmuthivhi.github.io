@@ -248,7 +248,12 @@ export const news = [
   {
     date: "Early 2026",
     title: "African Computer Vision Summer School (ACVSS)",
-    description: "I will be participating in the ACVSS 2026 to be held in Ghana, focusing on the latest advancements in AI and computer vision."
+    description: "I will be participating in the ACVSS 2026 to be held in Google, Accra, Ghana, focusing on the latest advancements in AI and computer vision."
+  },
+  {
+    date: "Apr 2026",
+    title: "Paper Accepted to FUSION 2026",
+    description: "Our paper 'Multi-Object Tracking Consistently Improves Wildlife Inference' has been accepted to the FUSION 2026 conference in Trondheim, Norway."
   },
   {
     date: "2025",
@@ -265,21 +270,27 @@ export const news = [
 export const awards = [
   {
     date: "2026",
-    title: "CVPR 2026 Travel Grant",
-    organization: "IEEE/CVF",
-    description: "Awarded a travel grant to attend and present research at CVPR 2026."
+    title: "African Computer Vision Summer School (ACVSS) - Full Grant Recipient",
+    organization: "Google AI Community Center",
+    description: "Awarded full funding to attend the premier computer vision summer school in Africa, recognizing outstanding research potential. To be hosted at Google, Accra, Ghana"
   },
   {
     date: "2025",
-    title: "Outstanding Research Award",
-    organization: "CV4Animals Workshop at CVPR",
-    description: "Recognized for significant contributions in wildlife detection methodologies."
+    title: "Global Excellence and Stature (GES) Scholarship",
+    organization: "University of Johannesburg",
+    description: "Awarded to the top percentile of postgraduate researchers based on sustained academic distinction and research output."
   },
   {
-    date: "2024",
-    title: "Best Dissertation Award",
-    organization: "University of Johannesburg",
-    description: "Awarded for exceptional Master's research on Multi-modal Recommendation Systems in high-noise environments."
+    date: "2020",
+    title: "Honours Bursary",
+    organization: "Vodacom",
+    description: "Awarded for exceptional performance in my undergraduate years."
+  },
+  {
+    date: "2017-2019",
+    title: "Undergraduate Bursary",
+    organization: "Vodacom",
+    description: "Awarded for exceptional performance in my final year of high school."
   }
 ];
 

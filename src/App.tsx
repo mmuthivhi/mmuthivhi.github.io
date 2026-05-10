@@ -290,6 +290,34 @@ export default function App() {
         </div>
       </Section>
 
+      {/* Awards */}
+      <Section id="awards">
+        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Awards</h2>
+        <div className="flex flex-col border-t border-gray-200 dark:border-neutral-800 transition-colors duration-300">
+          {awards.map((award, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4 }}
+              className="py-8 border-b border-gray-200 dark:border-neutral-800 transition-colors flex flex-col md:flex-row gap-4 md:gap-12 md:items-baseline group"
+            >
+              <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-500 md:w-24 shrink-0">{award.date}</div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors tracking-tight">
+                  {award.title}
+                </h3>
+                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">{award.description}</p>
+                <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 transition-colors duration-300 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                  {award.organization}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
       {/* Open Source Code */}
       <Section id="open-source" className="overflow-hidden">
         <div className="flex justify-between items-end mb-12">
@@ -372,32 +400,6 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Live Demos */}
-      <Section id="demos">
-        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Live Preview.</h2>
-        
-        <div className="bg-gray-100 dark:bg-neutral-900 rounded-[2rem] p-6 md:p-12 overflow-hidden transition-colors duration-300">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8 border-b border-gray-200 dark:border-neutral-800 pb-6">
-            <h3 className="text-2xl font-bold tracking-tight uppercase">Big5 OOD Classification</h3>
-            <div className="flex gap-2">
-              <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase tracking-widest rounded-full">Hugging Face</span>
-              <span className="inline-block px-3 py-1 border border-gray-300 dark:border-neutral-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Gradio Space</span>
-            </div>
-          </div>
-          
-          <div className="w-full bg-white dark:bg-neutral-950 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-800 h-[600px] md:h-[800px]">
-            <iframe
-              src="https://pxpana-big5-ood.hf.space"
-              frameBorder="0"
-              className="w-full h-full"
-              title="Big5 OOD Hugging Face Space"
-              allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
-              sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
-            ></iframe>
-          </div>
-        </div>
-      </Section>
-
       {/* Experience & Education */}
       <Section id="experience">
         <div className="grid md:grid-cols-2 gap-20">
@@ -475,31 +477,29 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Awards */}
-      <Section id="awards">
-        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Awards</h2>
-        <div className="flex flex-col border-t border-gray-200 dark:border-neutral-800 transition-colors duration-300">
-          {awards.map((award, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4 }}
-              className="py-8 border-b border-gray-200 dark:border-neutral-800 transition-colors flex flex-col md:flex-row gap-4 md:gap-12 md:items-baseline group"
-            >
-              <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-500 md:w-24 shrink-0">{award.date}</div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors tracking-tight">
-                  {award.title}
-                </h3>
-                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">{award.description}</p>
-                <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 transition-colors duration-300 text-[10px] font-bold uppercase tracking-widest rounded-full">
-                  {award.organization}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+      {/* Live Demos */}
+      <Section id="demos">
+        <h2 className="text-[50px] md:text-[80px] leading-[0.85] font-extrabold tracking-tighter mb-16 uppercase">Live Preview.</h2>
+        
+        <div className="bg-gray-100 dark:bg-neutral-900 rounded-[2rem] p-6 md:p-12 overflow-hidden transition-colors duration-300">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8 border-b border-gray-200 dark:border-neutral-800 pb-6">
+            <h3 className="text-2xl font-bold tracking-tight uppercase">Big5 OOD Classification</h3>
+            <div className="flex gap-2">
+              <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase tracking-widest rounded-full">Hugging Face</span>
+              <span className="inline-block px-3 py-1 border border-gray-300 dark:border-neutral-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Gradio Space</span>
+            </div>
+          </div>
+          
+          <div className="w-full bg-white dark:bg-neutral-950 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-800 h-[600px] md:h-[800px]">
+            <iframe
+              src="https://pxpana-big5-ood.hf.space"
+              frameBorder="0"
+              className="w-full h-full"
+              title="Big5 OOD Hugging Face Space"
+              allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
+              sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
+            ></iframe>
+          </div>
         </div>
       </Section>
 
