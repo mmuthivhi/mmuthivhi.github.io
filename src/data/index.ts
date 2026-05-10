@@ -210,33 +210,23 @@ export const highlightedPapers = [
 
 export const openSourceCode = [
   {
-    title: "Big5 OOD Detection",
-    description: "Codebase for out-of-distribution detection on the Africa's Big Five dataset. Includes training scripts, evaluation metrics, and pre-trained models.",
-    tags: ["PyTorch", "Computer Vision", "OOD"],
-    link: "https://github.com/muthivhi/big5-ood",
-    stars: 42
+    title: "Continual Self-supervised Learning",
+    description: "A python library of SOTA continual learning methods for self supervised learning.",
+    tags: ["continual learning", "self-supervised learing", "computer Vision"],
+    link: "https://github.com/mmuthivhi/CSSL",
   },
   {
-    title: "Big5 OOD Detection",
-    description: "Codebase for out-of-distribution detection on the Africa's Big Five dataset. Includes training scripts, evaluation metrics, and pre-trained models.",
-    tags: ["PyTorch", "Computer Vision", "OOD"],
-    link: "https://github.com/muthivhi/big5-ood",
-    stars: 42
+    title: "WildLife Classification",
+    description: "Codebase for wildlife classification of animals",
+    tags: ["classification", "wildlife", "computer Vision"],
+    link: "https://github.com/Applied-Representation-Learning-Lab/WildLife",
   },
   {
-    title: "Wildlife MOT",
-    description: "Multi-Object Tracking implementation optimized for wildlife monitoring in open environments. Features custom association metrics for non-rigid objects.",
-    tags: ["Tracking", "Python", "OpenCV"],
-    link: "https://github.com/muthivhi/wildlife-mot",
-    stars: 28
+    title: "Self-supervised learning Linear Regions",
+    description: "Codebase for CVPR 2026 paper.",
+    tags: ["self-supervised learing", "linear regions", "computer Vision"],
+    link: "https://github.com/mmuthivhi/LinearRegionSSL",
   },
-  {
-    title: "SSL Linear Regions",
-    description: "Tools for analyzing the complexity of linear regions in self-supervised Deep ReLU Networks. Includes visualization utilities.",
-    tags: ["Deep Learning", "Theory", "JAX"],
-    link: "https://github.com/muthivhi/ssl-linear-regions",
-    stars: 15
-  }
 ];
 
 export const news = [
