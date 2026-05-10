@@ -38,7 +38,7 @@ jobs:
       - name: Build
         run: |
           if [[ "${{ github.event.repository.name }}" == *".github.io"* ]]; then
-            npx vite build --base=/
+            npx vite build --base=./
           else
             npx vite build --base=/${{ github.event.repository.name }}/
           fi
