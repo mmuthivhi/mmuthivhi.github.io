@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { personal, experience, projects, education, publications, news, wip, highlightedPapers, openSourceCode, awards } from "./data";
-import { ChevronRight, ExternalLink, ArrowRight, Github, Mail, MapPin, Phone, Moon, Sun, Linkedin, GraduationCap, IdCard, Smile, Image as ImageIcon, Camera } from "lucide-react";
+import { ChevronRight, ExternalLink, ArrowRight, Github, Mail, MapPin, Phone, Moon, Sun, Linkedin, GraduationCap, IdCard, Smile, Image as ImageIcon, Camera, Snowflake } from "lucide-react";
 import { cn } from "./lib/utils";
 
 const Section = ({ className, children, id }: { className?: string; children: React.ReactNode; id?: string }) => (
@@ -202,29 +202,57 @@ export default function App() {
         </div>
         
         <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 md:-mx-12 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {news.map((item, i) => (
+          {news.map((item: any, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="snap-start shrink-0 w-[85vw] md:w-[420px] bg-gray-50 hover:bg-gray-100 dark:bg-neutral-900/50 dark:hover:bg-neutral-900 border border-gray-200 dark:border-neutral-800 p-8 md:p-10 flex flex-col justify-between group transition-colors duration-300 min-h-[320px] cursor-grab active:cursor-grabbing"
+              className={cn("snap-start relative overflow-hidden shrink-0 w-[85vw] md:w-[420px] p-8 md:p-10 flex flex-col justify-between group transition-colors duration-300 min-h-[320px] cursor-grab active:cursor-grabbing border rounded-xl", item.highlight ? "bg-[#e1f5fe]/80 hover:bg-[#e1f5fe] dark:bg-[#01579b]/20 dark:hover:bg-[#01579b]/30 border-blue-200 dark:border-blue-800" : "bg-gray-50 hover:bg-gray-100 dark:bg-neutral-900/50 dark:hover:bg-neutral-900 border-gray-200 dark:border-neutral-800")}
             >
-              <div>
-                <div className="flex justify-between items-center mb-8 border-b border-gray-200 dark:border-neutral-800 pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">{item.date}</span>
-                  <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 font-medium">0{i + 1}</span>
+              {item.highlight && (
+                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+                  {[...Array(6)].map((_, j) => (
+                    <motion.div
+                       key={j}
+                       animate={{
+                         y: [-20, 320],
+                         x: [0, (j % 2 === 0 ? 15 : -15), (j % 2 === 0 ? -10 : 10)],
+                         opacity: [0, 1, 0],
+                         rotate: [0, 180, 360]
+                       }}
+                       transition={{
+                         duration: 4 + (j % 3),
+                         repeat: Infinity,
+                         delay: (j * 0.4) % 2,
+                         ease: "linear"
+                       }}
+                       className="absolute text-blue-400/40 dark:text-blue-200/40"
+                       style={{
+                         left: `${10 + (j * 15) % 80}%`,
+                         top: -20
+                       }}
+                    >
+                      <Snowflake className="w-5 h-5" />
+                    </motion.div>
+                  ))}
                 </div>
-                <h3 className="text-2xl font-bold tracking-tighter mb-4 group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300 transition-colors uppercase leading-[1.1]">
+              )}
+              <div className="relative z-10">
+                <div className={cn("flex justify-between items-center mb-8 border-b pb-4", item.highlight ? "border-blue-200 dark:border-blue-800" : "border-gray-200 dark:border-neutral-800")}>
+                  <span className={cn("text-[10px] font-bold uppercase tracking-widest", item.highlight ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400")}>{item.date}</span>
+                  <span className={cn("text-[10px] font-mono font-medium", item.highlight ? "text-blue-400 dark:text-blue-600" : "text-gray-400 dark:text-gray-600")}>0{i + 1}</span>
+                </div>
+                <h3 className={cn("text-2xl font-bold tracking-tighter mb-4 transition-colors uppercase leading-[1.1]", item.highlight ? "text-blue-950 dark:text-blue-200" : "group-hover:text-black dark:group-hover:text-white text-gray-900 dark:text-gray-300")}>
                   {item.title}
                 </h3>
               </div>
-              <div className="mt-8 flex flex-col gap-4">
-                <p className="text-sm tracking-tight text-gray-600 dark:text-gray-400 transition-colors duration-300">
+              <div className="mt-8 flex flex-col gap-4 relative z-10">
+                <p className={cn("text-sm tracking-tight transition-colors duration-300", item.highlight ? "text-blue-800 dark:text-blue-300" : "text-gray-600 dark:text-gray-400")}>
                   {item.description}
                 </p>
-                <div className="w-8 h-1 bg-black/10 dark:bg-white/10 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 mt-2"></div>
+                <div className={cn("w-8 h-1 transition-colors duration-300 mt-2", item.highlight ? "bg-blue-500" : "bg-black/10 dark:bg-white/10 group-hover:bg-black dark:group-hover:bg-white")}></div>
               </div>
             </motion.div>
           ))}

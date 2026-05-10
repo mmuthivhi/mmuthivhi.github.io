@@ -243,7 +243,8 @@ export const news = [
   {
     date: "Apr 2026",
     title: "Paper Accepted to CVPR 2026 Findings Track",
-    description: "Our paper 'Complexity of Linear Regions in Self-supervised Deep ReLU Networks' has been accepted to the CVPR 2026 conference in Colorado, United States."
+    description: "Our paper 'Complexity of Linear Regions in Self-supervised Deep ReLU Networks' has been accepted to the CVPR 2026 conference in Colorado, United States.",
+    highlight: true
   },
   {
     date: "Early 2026",

@@ -36,7 +36,12 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: |
+          if [[ "${{ github.event.repository.name }}" == *".github.io"* ]]; then
+            npx vite build --base=/
+          else
+            npx vite build --base=/${{ github.event.repository.name }}/
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
