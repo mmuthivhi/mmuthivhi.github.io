@@ -105,6 +105,12 @@ export const projects = [
 
 export const publications = [
   {
+    title: "Visual-Prompt Guided Wildlife Instance-Level Recognition",
+    conference: "ECCV Instance-Level Recognition and Generation Workshop 2026",
+    authors: "Mufhumudzi Muthivhi, Jiahao Huo, Terence van Zyl, Fredrik Gustafsson",
+    year: "2026"
+  },
+  {
     title: "Complexity of Linear Regions in Self-supervised Deep ReLU Networks",
     conference: "CVPR 2026 Findings Track",
     authors: "Mufhumudzi Muthivhi, Terence L. van Zyl",
@@ -195,6 +201,12 @@ export const highlightedPapers = [
     link: "https://arxiv.org/pdf/2507.02403"
   },
   {
+    date: "2026",
+    title: "Visual-Prompt Guided Wildlife Instance-Level Recognition",
+    description: "Published at ECCV 2026 Workshop. e propose a one-stage end-to-end detection and re-identification model that performs identity searching within the latent space.",
+    link: "https://arxiv.org/pdf/2608.18246"
+  },
+  {
     date: "2025",
     title: "Improving Wildlife Out-of-Distribution Detection: Africas Big Five",
     description: "Presented at CVPR CV4Animals 2025. Explores detecting unknown instances in natural wildlife datasets.",
@@ -231,6 +243,12 @@ export const openSourceCode = [
 
 export const news = [
   {
+    date: "Aug 2026",
+    title: "Paper Accepted to ECCV Instance-Level Recognition and Generation Workshop 2026",
+    description: "Our paper 'Visual-Prompt Guided Wildlife Instance-Level Recognition' has been accepted to the ECCV 2026 Workshop in Malmö, Sweden.",
+    highlight: true
+  },
+  {
     date: "Apr 2026",
     title: "Paper Accepted to CVPR 2026 Findings Track",
     description: "Our paper 'Complexity of Linear Regions in Self-supervised Deep ReLU Networks' has been accepted to the CVPR 2026 conference in Colorado, United States.",
@@ -259,6 +277,12 @@ export const news = [
 ];
 
 export const awards = [
+  {
+    date: "2026",
+    title: "ECCV 2026 - Student Support Grant Recipient",
+    organization: "19th European Conference on Computer Vision",
+    description: "Awarded a Student support grant to attend ECCV 2026 in Malmö, Sweden"
+  },
   {
     date: "2026",
     title: "African Computer Vision Summer School (ACVSS) - Full Grant Recipient",
